@@ -28,7 +28,16 @@ export async function getStaticPaths() {
 }
 
 export default function UserDetails({ user }) {
-  const { loading, name, username, email, phone, website, companyName } = user;
+  const {
+    loading,
+    name,
+    username,
+    email,
+    phone,
+    website,
+    company: { name: companyName, catchPhrase, bs },
+    address: { street, suite, city, zipcode, geo },
+  } = user;
 
   if (loading) {
     return <p>Loading user details ....</p>;
@@ -41,7 +50,19 @@ export default function UserDetails({ user }) {
       <p>Email: {email}</p>
       <p>Phone: {phone}</p>
       <p>Website: {website}</p>
+
+      <h2>Address:</h2>
+      <p>Street: {street}</p>
+      <p>Suite: {suite}</p>
+      <p>City: {city}</p>
+      <p>Zipcode: {zipcode}</p>
+      <p>Latitude: {geo.lat}</p>
+      <p>Longitude: {geo.lng}</p>
+
+      <h2>Company:</h2>
       <p>Company Name: {companyName}</p>
+      <p>Catchphrase: {catchPhrase}</p>
+      <p>BS: {bs}</p>
     </div>
   );
 }
