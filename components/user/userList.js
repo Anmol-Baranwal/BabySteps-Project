@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -41,7 +42,9 @@ function UserList() {
       {users.map((user) => {
         // we can also use: ({ id, name, username, email, phone, website, companyName }) => {
         <div key={user.id}>
-          <h2>{user.name}</h2>
+          <Link href={`/user/${user.id}`}>
+            <h2>{user.name}</h2>
+          </Link>
           <p>Username: {user.username}</p>
           <p>Email: {user.email}</p>
           <p>Phone: {user.phone}</p>
@@ -53,4 +56,4 @@ function UserList() {
   );
 }
 
-export default userList;
+export default UserList;
