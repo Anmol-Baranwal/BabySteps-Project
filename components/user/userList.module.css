@@ -6,7 +6,7 @@
 .heading {
   font-size: 3.5rem;
   color: var(--primar-200);
-  margin-top: 2rem;
+  margin-top: 0rem;
   border-bottom: 0.15rem solid var(--primary-300);
   display: inline-block;
   max-width: 90%;
@@ -79,4 +79,47 @@
   margin: 3rem;
   font-size: 2rem;
   color: var(--primary-300);
+}
+
+.pagination {
+  margin: 0 20rem;
+  padding-left: 6rem;
+}
+
+.paginationBtn {
+  padding: 0.8rem;
+  margin: 0 1rem;
+  border: 0;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+}
+
+.paginationBtn:not(:disabled):hover {
+  background-color: var(--primary-300);
+  color: var(--text-black);
+  transition: 0.3s ease-in-out;
+}
+
+.activePage {
+  font-size: 1.35rem;
+  padding: 0.6rem;
+  margin: 0 0.5rem;
+  color: var(--accent-100);
+  text-decoration: none;
+  border: 1px solid var(--primary-200);
+  border-radius: 0.3rem;
+  background-color: var(--primary-200);
+}
+
+.nonActivePage {
+  font-size: 1.25rem;
+  padding: 0.6rem;
+  color: var(--primary-300);
+  text-decoration: none;
+}
+
+.nonActivePage:hover {
+  color: var(--accent-100);
+  transition: 0.35s ease-in-out;
 }

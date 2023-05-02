@@ -97,18 +97,21 @@ function UserList() {
             <button
               onClick={() => setCurrentPage(currentPage - 1)}
               disabled={currentPage === 1}
+              className={styles.paginationBtn}
             >
               Previous
             </button>
 
-            {/* map through the pageNumbers array to generate links for each page */}
+            {/* map through the pageNumbers array to generate unique links for each page using key */}
             {pageNumbers.map((number) => (
               <Link
                 href="#"
                 key={number}
                 onClick={() => setCurrentPage(number)}
                 className={
-                  number === currentPage ? styles.activePage : styles.page
+                  number === currentPage
+                    ? styles.activePage
+                    : styles.nonActivePage
                 }
               >
                 {number}
@@ -118,6 +121,7 @@ function UserList() {
             <button
               onClick={() => setCurrentPage(currentPage + 1)}
               disabled={currentPage === totalPages}
+              className={styles.paginationBtn}
             >
               Next
             </button>
