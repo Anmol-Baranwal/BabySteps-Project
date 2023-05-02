@@ -4,7 +4,7 @@ export async function getStaticProps({ params }) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/users/${params.id}`
   );
-  const user = res.json();
+  const user = await res.json();
 
   //   details will be returned as a prop to UserDetails component
   return {
@@ -16,7 +16,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
 
-  const users = res.json();
+  const users = await res.json(); // res.json() method returns a Promise that needs to be resolved before we can access the actual data
 
   const paths = users.map((user) => ({
     params: {
