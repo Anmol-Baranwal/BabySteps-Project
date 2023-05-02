@@ -53,6 +53,11 @@ function UserList() {
   // Calculating the total number of pages
   const totalPages = Math.ceil(users.length / usersPerPage);
 
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
   return (
     <div className={styles.main}>
       <h1 className={styles.heading}>User List</h1>
@@ -95,9 +100,21 @@ function UserList() {
             >
               Previous
             </button>
-            <p className={styles.pageNumber}>
-              Page {currentPage} of {totalPages}
-            </p>
+
+            {/* map through the pageNumbers array to generate links for each page */}
+            {pageNumbers.map((number) => (
+              <Link
+                href="#"
+                key={number}
+                onClick={() => setCurrentPage(number)}
+                className={
+                  number === currentPage ? styles.activePage : styles.page
+                }
+              >
+                {number}
+              </Link>
+            ))}
+
             <button
               onClick={() => setCurrentPage(currentPage + 1)}
               disabled={currentPage === totalPages}
