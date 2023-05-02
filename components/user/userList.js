@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import styles from "./userList.module.css";
+// import cls from "classnames";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -40,23 +42,38 @@ function UserList() {
   }, []); // When this list is empty ([]), it means that the effect will only run once when the component mounts, and never again.
 
   return (
-    <div>
-      <h1>User List</h1>
-      {users.map((user) => {
-        // we can also use: ({ id, name, username, email, phone, website, companyName }) => {
-        return (
-          <div key={user.id}>
-            <Link href={`/user/${user.id}`}>
-              <h2>{user.name}</h2>
-            </Link>
-            <p>Username: {user.username}</p>
-            <p>Email: {user.email}</p>
-            <p>Phone: {user.phone}</p>
-            <p>Website: {user.website}</p>
-            <p>Company Name: {user.companyName}</p>
-          </div>
-        );
-      })}
+    <div className={styles.main}>
+      <h1 className={styles.heading}>User List</h1>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th className={styles.tableheading}>Name</th>
+            <th className={styles.tableheading}>Username</th>
+            <th className={styles.tableheading}>Email</th>
+            <th className={styles.tableheading}>Phone</th>
+            <th className={styles.tableheading}>Website</th>
+            <th className={styles.tableheading}>Company Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => {
+            // we can also use: ({ id, name, username, email, phone, website, companyName }) => {
+            return (
+              <tr key={user.id} className={styles.userBlock}>
+                <Link href={`/user/${user.id}`} className={styles.customLink}>
+                  {/* <td className={cls(styles.name, styles.tablecell)}> */}
+                  <td className={styles.name}>{user.name}</td>
+                </Link>
+                <td className={styles.tablecell}>{user.username}</td>
+                <td className={styles.tablecell}>{user.email}</td>
+                <td className={styles.tablecell}>{user.phone}</td>
+                <td className={styles.tablecell}>{user.website}</td>
+                <td className={styles.tablecell}>{user.companyName}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
