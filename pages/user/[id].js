@@ -1,4 +1,6 @@
+import { useRouter } from "next/router";
 import styles from "@/styles/user.module.css";
+import { useEffect, useState } from "react";
 
 // docs: https://nextjs.org/docs/basic-features/data-fetching/get-static-props
 export async function getStaticProps({ params }) {
@@ -11,6 +13,7 @@ export async function getStaticProps({ params }) {
   //   details will be returned as a prop to UserDetails component
   return {
     props: { user },
+    // revalidate: 10,
   };
 }
 
@@ -26,12 +29,28 @@ export async function getStaticPaths() {
     },
   }));
 
-  return { paths, fallback: false }; // fallback: false -> any paths not returned by getStaticPaths will result in a 404 page
+  return { paths, fallback: true }; // fallback: false -> any paths not returned by getStaticPaths will result in a 404 page e.g. accessing /user/101
 }
 
 export default function UserDetails({ user }) {
+  // handling loading condition
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(router.isFallback || !user);
+  }, [router.isFallback, user]);
+
+  //   check if user exists
+  if (!user && loading) {
+    return <h1>User not found (id valid only from 1-10)</h1>;
+  }
+
+  if (router.isFallback) {
+    return <p>Loading user details ....</p>;
+  }
+
   const {
-    loading,
     name,
     username,
     email,
@@ -40,10 +59,6 @@ export default function UserDetails({ user }) {
     company: { name: companyName, catchPhrase, bs },
     address: { street, suite, city, zipcode, geo },
   } = user;
-
-  if (loading) {
-    return <p>Loading user details ....</p>;
-  }
 
   return (
     <div className={styles.main}>
