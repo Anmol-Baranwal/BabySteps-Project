@@ -74,3 +74,9 @@
 .td:first-child {
   padding-top: 2rem;
 }
+
+.loading {
+  margin: 3rem;
+  font-size: 2rem;
+  color: var(--primary-300);
+}
