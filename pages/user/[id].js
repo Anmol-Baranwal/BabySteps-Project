@@ -1,3 +1,5 @@
+import styles from "@/styles/user.module.css";
+
 // docs: https://nextjs.org/docs/basic-features/data-fetching/get-static-props
 export async function getStaticProps({ params }) {
   // fetch the user details for a specific ID
@@ -44,25 +46,51 @@ export default function UserDetails({ user }) {
   }
 
   return (
-    <div>
-      <h1>Name: {name}</h1>
-      <p>Username: {username}</p>
-      <p>Email: {email}</p>
-      <p>Phone: {phone}</p>
-      <p>Website: {website}</p>
+    <div className={styles.main}>
+      <h1 className={styles.heading}>{name}</h1>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Username:</span> {username}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Email:</span> {email}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Phone:</span> {phone}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Website:</span> {website}
+      </p>
 
-      <h2>Address:</h2>
-      <p>Street: {street}</p>
-      <p>Suite: {suite}</p>
-      <p>City: {city}</p>
-      <p>Zipcode: {zipcode}</p>
-      <p>Latitude: {geo.lat}</p>
-      <p>Longitude: {geo.lng}</p>
+      <h2 className={styles.subHeading}>Address:</h2>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Street:</span> {street}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Suite:</span> {suite}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>City:</span> {city}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Zipcode:</span> {zipcode}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Latitude:</span> {geo.lat}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Longitude:</span> {geo.lng}
+      </p>
 
-      <h2>Company:</h2>
-      <p>Company Name: {companyName}</p>
-      <p>Catchphrase: {catchPhrase}</p>
-      <p>BS: {bs}</p>
+      <h2 className={styles.subHeading}>Company:</h2>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Company Name:</span> {companyName}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>Catchphrase:</span> {catchPhrase}
+      </p>
+      <p className={styles.content}>
+        <span className={styles.subContent}>BS:</span> {bs}
+      </p>
     </div>
   );
 }
