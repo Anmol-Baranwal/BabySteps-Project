@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import styles from "./userList.module.css";
-// import cls from "classnames";
 
 function UserList() {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true); // add loading state
-
-  console.log({ users });
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [usersPerPage] = useState(4); // Set the number of users to be displayed per page
 
   useEffect(() => {
     async function fetchUsers() {
@@ -33,40 +32,51 @@ function UserList() {
             companyName,
           })
         );
-        console.log({ users });
         setUsers(users);
-        setLoading(false); // since data is fetched
+        setLoading(false);
       } catch (err) {
         console.log("error in fetching users" + err);
       }
     }
     fetchUsers();
-  }, []); // When this list is empty ([]), it means that the effect will only run once when the component mounts, and never again.
+  }, []);
+
+  // Calculating the index of the last user
+  const indexOfLastUser = currentPage * usersPerPage;
+
+  // Calculating the index of the first user
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+
+  // Slice the users array to get users for displaying on current page
+  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+
+  // Calculating the total number of pages
+  const totalPages = Math.ceil(users.length / usersPerPage);
 
   return (
     <div className={styles.main}>
       <h1 className={styles.heading}>User List</h1>
-      {loading ? ( // check if loading is true or false
+      {loading ? (
         <p className={styles.loading}>Loading users...</p>
       ) : (
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th className={styles.tableheading}>Name</th>
-              <th className={styles.tableheading}>Username</th>
-              <th className={styles.tableheading}>Email</th>
-              <th className={styles.tableheading}>Phone</th>
-              <th className={styles.tableheading}>Website</th>
-              <th className={styles.tableheading}>Company Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => {
-              // we can also use: ({ id, name, username, email, phone, website, companyName }) => {
-              return (
+        // since JSX expression has one parent element
+        <div>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th className={styles.tableheading}>Name</th>
+                <th className={styles.tableheading}>Username</th>
+                <th className={styles.tableheading}>Email</th>
+                <th className={styles.tableheading}>Phone</th>
+                <th className={styles.tableheading}>Website</th>
+                <th className={styles.tableheading}>Company Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* mapping only current users using slice */}
+              {currentUsers.map((user) => (
                 <tr key={user.id} className={styles.userBlock}>
                   <Link href={`/user/${user.id}`} className={styles.customLink}>
-                    {/* <td className={cls(styles.name, styles.tablecell)}> */}
                     <td className={styles.name}>{user.name}</td>
                   </Link>
                   <td className={styles.tablecell}>{user.username}</td>
@@ -75,10 +85,27 @@ function UserList() {
                   <td className={styles.tablecell}>{user.website}</td>
                   <td className={styles.tablecell}>{user.companyName}</td>
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              ))}
+            </tbody>
+          </table>
+          <div className={styles.pagination}>
+            <button
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            <p className={styles.pageNumber}>
+              Page {currentPage} of {totalPages}
+            </p>
+            <button
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
