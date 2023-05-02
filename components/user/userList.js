@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 function UserList() {
   const [users, setUsers] = useState([]);
 
+  console.log({ users });
+
   useEffect(() => {
     async function fetchUsers() {
       try {
         const res = await fetch("https://jsonplaceholder.typicode.com/users");
-        const data = res.json();
+        const data = await res.json();
         const users = data.map(
           ({
             id,
@@ -28,6 +30,7 @@ function UserList() {
             companyName,
           })
         );
+        console.log({ users });
         setUsers(users);
       } catch (err) {
         console.log("error in fetching users" + err);
@@ -41,16 +44,18 @@ function UserList() {
       <h1>User List</h1>
       {users.map((user) => {
         // we can also use: ({ id, name, username, email, phone, website, companyName }) => {
-        <div key={user.id}>
-          <Link href={`/user/${user.id}`}>
-            <h2>{user.name}</h2>
-          </Link>
-          <p>Username: {user.username}</p>
-          <p>Email: {user.email}</p>
-          <p>Phone: {user.phone}</p>
-          <p>Website: {user.website}</p>
-          <p>Company Name: {user.company.name}</p>
-        </div>;
+        return (
+          <div key={user.id}>
+            <Link href={`/user/${user.id}`}>
+              <h2>{user.name}</h2>
+            </Link>
+            <p>Username: {user.username}</p>
+            <p>Email: {user.email}</p>
+            <p>Phone: {user.phone}</p>
+            <p>Website: {user.website}</p>
+            <p>Company Name: {user.companyName}</p>
+          </div>
+        );
       })}
     </div>
   );
