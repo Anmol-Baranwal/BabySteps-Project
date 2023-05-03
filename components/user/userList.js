@@ -7,39 +7,48 @@ function UserList() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(4); // Set the number of users to be displayed per page
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     async function fetchUsers() {
       try {
         const res = await fetch("https://jsonplaceholder.typicode.com/users");
         const data = await res.json();
-        const users = data.map(
-          ({
-            id,
-            name,
-            username,
-            email,
-            phone,
-            website,
-            company: { name: companyName },
-          }) => ({
-            id,
-            name,
-            username,
-            email,
-            phone,
-            website,
-            companyName,
-          })
-        );
+        const users = data
+          .filter(
+            (user) =>
+              user.name.toLowerCase().includes(searchInput.toLowerCase()) || // Filter by name
+              user.email.toLowerCase().includes(searchInput.toLowerCase()) // Filter by email
+          )
+          .map(
+            ({
+              id,
+              name,
+              username,
+              email,
+              phone,
+              website,
+              company: { name: companyName },
+            }) => ({
+              id,
+              name,
+              username,
+              email,
+              phone,
+              website,
+              companyName,
+            })
+          );
         setUsers(users);
         setLoading(false);
+        // when the search query is changed, we should go to page 1 since the data would be at page 1
+        setCurrentPage(1);
       } catch (err) {
         console.log("error in fetching users" + err);
       }
     }
     fetchUsers();
-  }, []);
+  }, [searchInput]); // Re-fetch the users whenever the search query input changes
 
   // Calculating the index of the last user
   const indexOfLastUser = currentPage * usersPerPage;
@@ -58,9 +67,26 @@ function UserList() {
     pageNumbers.push(i);
   }
 
+  const handleSearchFunction = (e) => {
+    setSearchInput(e.target.value);
+  };
+
   return (
     <div className={styles.main}>
       <h1 className={styles.heading}>User List</h1>
+
+      <div className={styles.search}>
+        <div className={styles.searchTxt}>
+          Search by typing username or email
+        </div>
+        <input
+          type="text"
+          placeholder="Name / Email"
+          onChange={handleSearchFunction}
+          className={styles.searchInput}
+        />
+      </div>
+
       {loading ? (
         <p className={styles.loading}>Loading users...</p>
       ) : (
