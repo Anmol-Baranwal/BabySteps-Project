@@ -41,6 +41,8 @@ function UserList() {
           );
         setUsers(users);
         setLoading(false);
+        // when the search query is changed, we should go to page 1 since the data would be at page 1
+        setCurrentPage(1);
       } catch (err) {
         console.log("error in fetching users" + err);
       }
