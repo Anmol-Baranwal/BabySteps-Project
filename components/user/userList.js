@@ -7,31 +7,38 @@ function UserList() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(4); // Set the number of users to be displayed per page
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     async function fetchUsers() {
       try {
         const res = await fetch("https://jsonplaceholder.typicode.com/users");
         const data = await res.json();
-        const users = data.map(
-          ({
-            id,
-            name,
-            username,
-            email,
-            phone,
-            website,
-            company: { name: companyName },
-          }) => ({
-            id,
-            name,
-            username,
-            email,
-            phone,
-            website,
-            companyName,
-          })
-        );
+        const users = data
+          .filter(
+            (user) =>
+              user.name.toLowerCase().includes(searchInput.toLowerCase()) || // Filter by name
+              user.email.toLowerCase().includes(searchInput.toLowerCase()) // Filter by email
+          )
+          .map(
+            ({
+              id,
+              name,
+              username,
+              email,
+              phone,
+              website,
+              company: { name: companyName },
+            }) => ({
+              id,
+              name,
+              username,
+              email,
+              phone,
+              website,
+              companyName,
+            })
+          );
         setUsers(users);
         setLoading(false);
       } catch (err) {
@@ -39,7 +46,7 @@ function UserList() {
       }
     }
     fetchUsers();
-  }, []);
+  }, [searchInput]); // Re-fetch the users whenever the search query input changes
 
   // Calculating the index of the last user
   const indexOfLastUser = currentPage * usersPerPage;
@@ -58,9 +65,23 @@ function UserList() {
     pageNumbers.push(i);
   }
 
+  const handleSearchFunction = (e) => {
+    setSearchInput(e.target.value);
+  };
+
   return (
     <div className={styles.main}>
       <h1 className={styles.heading}>User List</h1>
+
+      <div className={styles.search}>
+        <input
+          type="text"
+          placeholder="Search using name or email"
+          onChange={handleSearchFunction}
+          className={styles.searchInput}
+        />
+      </div>
+
       {loading ? (
         <p className={styles.loading}>Loading users...</p>
       ) : (
