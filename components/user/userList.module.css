@@ -28,7 +28,7 @@
 
 .tableheading {
   text-align: left;
-  padding-left: 2rem;
+  padding: 0.2rem 1rem 0.2rem 2rem;
   font-weight: 800;
   font-size: 1.2rem;
   color: var(--primary-300);
@@ -50,6 +50,7 @@
   border-right: 0px;
   text-decoration: underline;
   transition: transform 0.3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out;
 }
 
 .name:hover {
@@ -99,6 +100,7 @@
   background-color: var(--primary-300);
   color: var(--text-black);
   transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
 }
 
 .activePage {
@@ -122,4 +124,60 @@
 .nonActivePage:hover {
   color: var(--accent-100);
   transition: 0.35s ease-in-out;
+}
+
+.search {
+  margin-top: 3rem;
+}
+
+.searchInput {
+  margin-top: 0.8rem;
+  padding: 0.8rem 0;
+  font-size: 1.2rem;
+}
+
+.searchInput::placeholder {
+  color: var(--bg-200);
+  padding-left: 0.1rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+  /* border-bottom: 4px solid var(--primary-300); */
+}
+
+.searchTxt {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--primary-300);
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+}
+
+.search input[type="text"] {
+  background: var(--primary-300);
+  /* background: transparent; */
+  border: 10px solid var(--primar-200);
+  border-radius: 0.2rem;
+  color: var(--text-black);
+  padding-left: 0.8rem;
+}
+
+.search input[type="text"]:focus {
+  border: 100px solid var(--primar-200);
+  outline: none;
+}
+
+.searchInput {
+  letter-spacing: 0.06rem; /* default letter-spacing */
+  transition: letter-spacing font-weight 0.2s; /* add a transition effect */
+}
+
+.searchInput:focus,
+.searchInput:not(:placeholder-shown) {
+  letter-spacing: 0.1rem; /* increase letter-spacing when the input is not empty */
+  font-weight: 600;
+}
+
+.inputTxt[type="text"]:not(:placeholder-shown) {
+  color: var(--accent-100); /* new font color when typing */
 }
