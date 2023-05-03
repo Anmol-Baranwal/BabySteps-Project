@@ -178,6 +178,6 @@
   font-weight: 600;
 }
 
-.inputTxt[type="text"]:not(:placeholder-shown) {
-  color: var(--accent-100); /* new font color when typing */
-}
+/* .inputTxt[type="text"]:not(:placeholder-shown) {
+  color: var(--accent-100); 
+} */
