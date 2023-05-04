@@ -5,7 +5,7 @@ import styles from "@/styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.main}>
       <Head>
         <title>BabySteps: Cutting edge Solution</title>
         <meta name="description" content="Fetching data of users" />
