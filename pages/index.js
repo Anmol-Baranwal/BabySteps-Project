@@ -1,19 +1,20 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
 import UserList from "@/components/user/userList";
+import styles from "@/styles/Home.module.css";
+// import BabySteps from "@/static/BabySteps"
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Head>
-        <title>Information of Users</title>
-        <meta name="description" content="Stop waiting in queues" />
+        <title>BabySteps: Cutting edge Solution</title>
+        <meta name="description" content="Fetching data of users" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/static/BabySteps.jpg" />
       </Head>
       <div>
         <UserList />
       </div>
-    </>
+    </div>
   );
 }
