@@ -1,6 +1,7 @@
 .main {
   color: var(--primary-200);
   padding: 4rem;
+  overflow-x: scroll;
 }
 
 .heading {
@@ -43,11 +44,11 @@
 }
 
 .name {
-  border: 0.1px solid var(--primary-300);
-  border-right: 0px;
+  border: 0.2px solid var(--primary-300);
   color: var(--accent-100);
   font-weight: 600;
   padding: 1rem;
+  min-width: 13.5rem;
   text-decoration: underline;
   transition: transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
@@ -83,8 +84,21 @@
 }
 
 .pagination {
-  margin: 0 20rem;
-  padding-left: 6rem;
+  position: relative;
+  right: auto;
+  margin-left: 30%;
+}
+
+@media only screen and (max-width: 850px) {
+  .pagination {
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .pagination {
+    margin-left: 10%;
+  }
 }
 
 .paginationBtn {
