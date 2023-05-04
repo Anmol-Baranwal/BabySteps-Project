@@ -1,45 +1,45 @@
 .main {
-  padding-top: 3rem;
-  padding-left: 4rem;
-  margin-bottom: 5rem;
   color: var(--primary-200);
+  padding-left: 4rem;
+  padding-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .heading {
-  font-size: 3.5rem;
-  color: var(--primar-200);
-  margin-top: 1rem;
   border-bottom: 0.15rem solid var(--primary-300);
+  color: var(--primar-200);
   display: inline-block;
-  max-width: 90%;
+  font-size: 3.5rem;
   font-weight: 800;
   letter-spacing: 0.1rem;
   margin-bottom: 0.6rem;
+  margin-top: 1rem;
+  max-width: 90%;
 }
 
 .subHeading {
-  color: var(--primary-300);
-  font-size: 2.5rem;
-  margin-top: 2rem;
   border-bottom: 0.15rem solid var(--primary-300);
+  color: var(--primary-300);
   display: inline-block;
-  max-width: 90%;
+  font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 0.6rem;
+  margin-top: 2rem;
+  max-width: 90%;
 }
 
 .content {
-  font-size: 1.2rem;
   color: var(--accent-100);
-  padding-top: 0.7rem;
+  font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 0.08rem;
+  padding-top: 0.7rem;
 }
 
 .subContent {
-  letter-spacing: 0.1rem;
   color: var(--primary-300);
   font-style: italic;
   font-weight: 800;
+  letter-spacing: 0.1rem;
   padding-right: 0.5rem;
 }
