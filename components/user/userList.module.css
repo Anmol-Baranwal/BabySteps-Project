@@ -47,7 +47,9 @@
   border: 0.2px solid var(--primary-300);
   color: var(--accent-100);
   font-weight: 600;
+  height: 4.5rem;
   padding: 1rem;
+  padding-top: 1.5rem;
   min-width: 13.5rem;
   text-decoration: underline;
   transition: transform 0.3s ease-in-out;
@@ -181,11 +183,98 @@
 
 .searchInput {
   letter-spacing: 0.06rem; /* default letter-spacing */
-  transition: letter-spacing font-weight 0.2s; /* add a transition effect */
+  transition: letter-spacing 0.2s; /* add a transition effect */
 }
 
 .searchInput:focus,
 .searchInput:not(:placeholder-shown) {
   letter-spacing: 0.1rem; /* increase letter-spacing when the input is not empty */
-  /* color: var(--text-black); */
+}
+
+@media only screen and (max-width: 1250px) {
+  .main {
+    padding: 4rem 0 2rem 0;
+  }
+
+  .heading {
+    margin-left: 4rem;
+  }
+
+  .search {
+    padding-left: 4rem;
+  }
+}
+
+@media (max-width: 1145px) {
+  .main {
+    padding: 6rem;
+  }
+
+  .heading {
+    margin-left: 0rem;
+  }
+
+  .search {
+    padding-left: 0rem;
+  }
+
+  .table,
+  .tablehead,
+  .tablebody,
+  .tableheading,
+  .tablecell,
+  .userBlock {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .tablehead .tablerow {
+    left: -9999px;
+    position: absolute;
+    top: -9999px;
+  }
+
+  .tablecell {
+    /* Behave like a "row" */
+    border: none;
+    border-bottom: 1px solid var(--primary-300);
+    margin-top: 0.2rem;
+    max-width: 13rem;
+    padding-left: 0;
+    position: relative;
+    text-align: left;
+  }
+
+  .tablecell:first-of-type {
+    border-top: 1px solid var(--text-black);
+  }
+
+  .tablecell:last-of-type {
+    margin-bottom: 2rem;
+  }
+
+  .tablecell:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  .userBlock:hover {
+    background-color: transparent;
+  }
+
+  .name:hover {
+    border-color: var(--primary-200);
+    color: var(--primary-200);
+  }
+
+  .userBlock:hover > .tablecell {
+    color: var(--primary-300);
+  }
 }
