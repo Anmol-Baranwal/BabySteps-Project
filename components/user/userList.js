@@ -76,9 +76,7 @@ function UserList() {
       <h1 className={styles.heading}>User List</h1>
 
       <div className={styles.search}>
-        <div className={styles.searchTxt}>
-          Search by typing username or email
-        </div>
+        <div className={styles.searchTxt}>Search by Username or Email</div>
         <input
           type="text"
           placeholder="Name / Email"
