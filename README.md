@@ -3,9 +3,9 @@
 
 > :information_source: This is a web application built using [Next.js](https://nextjs.org/).
 
+This project retrieves user information from an external API endpoint and displays them in a paginated table.  It also offers a search feature that enables users to filter the user list by name or email. Additionally, the project uses server-side rendering to improve performance and SEO.
 
-
-For further information on specific code used in this, you can refer [here](Explanation.md)
+If you wish to learn about the specific code used in this project, please refer to the [Explanation.md](Explanation.md) file.
 
 <hr>
 
