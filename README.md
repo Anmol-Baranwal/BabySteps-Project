@@ -1,43 +1,104 @@
-# BabySteps-Project
-Displays a list of users and their associated information
 
-# Next.js Application
+# <img src="https://user-images.githubusercontent.com/74038190/221857969-f37e1717-1470-4fe4-abb5-88b334cf64ea.png" alt="icon of todo list" width="45" /> Baby Steps Internship Project
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+> :information_source: This is a web application built using [Next.js](https://nextjs.org/).
 
-## Getting Started
 
-First, run the development server:
+
+For further information on specific code used in this, you can refer [here](Explanation.md)
+
+<hr>
+
+## :fire: Deployed Link ##
+
+This project is hosted on [Vercel Platform](https://vercel.com/). Visit the following link to view the web application.
+
+```
+https://baby-steps-rho.vercel.app/
+```
+<hr>
+
+## ✅ Guidelines to run web app locally
+
+- For this app to work, Use these commands to run the application
 
 ```bash
+# to install dependencies 
+npm install
+
+# to run the server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Open `http://localhost:3000` with your browser to see the application.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<br>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<hr>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## :open_file_folder: Folder Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+A quick look at the folder structure of this project.
 
-## Learn More
+    .
+    |──node_modules
+    |──next.config.json
+    |──jsconfig.json
+    |──.eslintrc.json
+    |──package-lock.json
+    |──package.json
+    ├── components
+        |───user
+            |───userList.js
+            |───userList.module.css
+    ├── data
+        |───userStats.json
+    └── models
+        |───userModel.js
+    └── pages
+        |───api
+            |───user
+                 └─[id].js
+            |───_app.js
+            |───_document.js
+            |───404.js
+            |───index.js
+    └── public
+        └───static
+            |──404.png
+            |──BabySteps.jpg
+    └── styles
+        |──404.module.css
+        |──globals.css
+        |──user.module.css
+        |──Home.module.css
+    
 
-To learn more about Next.js, take a look at the following resources:
+<hr>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## <img src="https://user-images.githubusercontent.com/74038190/221857984-5bf77e81-6f65-4502-a7c8-f29a978efb3f.png" alt="bullseye" width="35" /> Frameworks & Tools
+<img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+<img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white" />
+<img src="https://img.shields.io/badge/Lighthouse-F44B21?style=for-the-badge&logo=Lighthouse&logoColor=white" />
+<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<hr>
 
-## Deploy on Vercel
+## 💻 User Interface
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> Start Screen
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Starting Screen](https://user-images.githubusercontent.com/74038190/236125286-d9db0182-e12a-4cb4-8143-da5994bc922f.png)
+
+<br>
+
+> Dynamic User Details Page
+
+![Dynamic User Page](https://user-images.githubusercontent.com/74038190/236125293-669d25d3-4faf-45b5-8bdb-063937c61fbb.png)
+
+
+
+
+
