@@ -40,3 +40,8 @@ Finally, the component imports a CSS module file `user.module.css` and uses it t
 
 In summary, the `pages/user/[id].js` file is a dynamic Next.js page that uses the `getStaticProps` and `getStaticPaths` functions to fetch and pre-generate user data for all possible dynamic routes. The `UserDetails` component renders the fetched user data and styles it using a CSS module.
 
+## Custom 404 Page
+
+In the UserDetails dynamic page, the `fallback` key is set to false in the returned object. This configuration ensures that any path that is not defined in `getStaticPaths` will result in a 404 page. When a user tries to access a non-existent page, Next.js automatically renders the `ErrorPage` component. 
+
+This component is a custom 404 page that displays a simple message, "User ID valid till 10," along with an image. The image is an illustration that helps to convey the error to the user in a visual manner.
