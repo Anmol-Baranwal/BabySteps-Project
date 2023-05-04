@@ -22,6 +22,8 @@
   position: relative;
   left: 32rem;
   top: 3rem;
+  width: 700px;
+  height: 500px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -29,12 +31,14 @@
     font-size: 4rem;
     max-width: 30rem;
     padding: 9rem 3rem;
+    max-width: 32rem;
   }
 
   .imageWrapper {
-    left: 20rem;
+    left: 25rem;
     top: 1rem;
-    width: 300px;
+    width: 600px;
+    height: 420px;
   }
 }
 
@@ -50,8 +54,10 @@
   }
 
   .imageWrapper {
-    left: auto;
+    left: 3.5rem;
     top: -8rem;
+    width: 700px;
+    height: 500px;
   }
 }
 
@@ -68,10 +74,17 @@
   }
 }
 
-@media only screen and (max-width: 568px) {
+@media (min-width: 631px) and (max-width: 730px) {
   .imageWrapper {
-    left: -5rem;
-    top: 1rem;
+    width: 588px;
+    height: 420px;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .imageWrapper {
+    width: 504px;
+    height: 360px;
   }
 }
 
@@ -79,7 +92,6 @@
   .content {
     font-size: 1.5rem;
     max-width: 20rem;
-    padding: 4rem 2rem;
   }
 
   .imageWrapper {
