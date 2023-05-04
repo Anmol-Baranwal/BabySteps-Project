@@ -91,8 +91,8 @@ function UserList() {
         // since JSX expression has one parent element
         <div>
           <table className={styles.table}>
-            <thead>
-              <tr>
+            <thead className={styles.tablehead}>
+              <tr className={styles.tablerow}>
                 <th className={styles.tableheading}>Name</th>
                 <th className={styles.tableheading}>Username</th>
                 <th className={styles.tableheading}>Email</th>
@@ -101,7 +101,7 @@ function UserList() {
                 <th className={styles.tableheading}>Company Name</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className={styles.tablebody}>
               {/* mapping only current users using slice */}
               {currentUsers.map((user) => (
                 <tr key={user.id} className={styles.userBlock}>
