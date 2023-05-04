@@ -1,7 +1,6 @@
 import Head from "next/head";
 import UserList from "@/components/user/userList";
 import styles from "@/styles/Home.module.css";
-// import BabySteps from "@/static/BabySteps"
 
 export default function Home() {
   return (
