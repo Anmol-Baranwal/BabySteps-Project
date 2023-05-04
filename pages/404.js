@@ -9,8 +9,8 @@ const ErrorPage = () => {
         <Image
           src="/static/404.png"
           alt="404 page custom illustration"
-          width={2500 / 3.4}
-          height={1778 / 3.4}
+          width={2500 / 3.8}
+          height={1778 / 3.8}
           className={styles.customImage}
         />
       </div>
