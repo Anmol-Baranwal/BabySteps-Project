@@ -31,7 +31,6 @@ export async function getStaticPaths() {
 
 export default function UserDetails({ user }) {
   const {
-    loading,
     name,
     username,
     email,
@@ -40,10 +39,6 @@ export default function UserDetails({ user }) {
     company: { name: companyName, catchPhrase, bs },
     address: { street, suite, city, zipcode, geo },
   } = user;
-
-  if (loading) {
-    return <p>Loading user details ....</p>;
-  }
 
   return (
     <div className={styles.main}>
