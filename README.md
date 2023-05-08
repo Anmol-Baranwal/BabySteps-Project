@@ -77,6 +77,18 @@ A quick look at the folder structure of this project.
 
 <hr>
 
+## ✨ Features
+
+- Fetch user details from external API
+- Display users in a paginated table
+- Search functionality to filter users by name or email
+- Dynamic user route with complete details at `/user/:id`
+- Server-side rendering for improved performance and SEO
+- Ensure that the interface is completely responsive across all devices using media queries. 
+- Includes a custom 404 error page
+
+<hr>
+
 ## <img src="https://user-images.githubusercontent.com/74038190/221857984-5bf77e81-6f65-4502-a7c8-f29a978efb3f.png" alt="bullseye" width="35" /> Frameworks & Tools
 <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
