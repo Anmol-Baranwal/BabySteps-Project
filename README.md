@@ -48,32 +48,31 @@ A quick look at the folder structure of this project.
     |──.eslintrc.json
     |──package-lock.json
     |──package.json
-    ├── components
-        |───user
-            |───userList.js
-            |───userList.module.css
-    ├── data
-        |───userStats.json
+    └── components
+        └───user
+            └───userList.js
+            └───userList.module.css
+    └── data
+        └───userStats.json
     └── models
-        |───userModel.js
+        └───userModel.js
     └── pages
-        |───api
-            |───user
+        └───api
+            └───user
                  └─[id].js
-            |───_app.js
-            |───_document.js
-            |───404.js
-            |───index.js
+        └───_app.js
+        └───_document.js
+        └───404.js
+        └───index.js
     └── public
         └───static
-            |──404.png
-            |──BabySteps.jpg
+            └──404.png
+            └──BabySteps.jpg
     └── styles
-        |──404.module.css
-        |──globals.css
-        |──user.module.css
-        |──Home.module.css
-    
+        └──404.module.css
+        └──globals.css
+        └──user.module.css
+        └──Home.module.css
 
 <hr>
 
